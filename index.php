@@ -49,28 +49,39 @@ session_start();
 
             var redirect = 'results.php';
 
-            $('#inset_form').html(
-            '<form action="url" name="form" method="post" style="display:none;"><input type="text" name="name" value="' + value + '" /></form>');
-            document.forms['form'].submit();
+            /**
+             * sends a request to the specified url from a form. this will change the window location.
+             * @param {string} path the path to send the post request to
+             * @param {object} params the parameters to add to the url
+             * @param {string} [method=post] the method to use on the form
+             */
 
+            function post(path, params, method = 'post') {
 
-            $("#clicker").submit(function(event) {
-                alert("Handler for .submit() called.");
-                event.preventDefault();
+                // The rest of this code assumes you are not using a library.
+                // It can be made less verbose if you use one.
+                const form = document.createElement('form');
+                form.method = method;
+                form.action = path;
+
+                for (const key in params) {
+                    if (params.hasOwnProperty(key)) {
+                        const hiddenField = document.createElement('input');
+                        hiddenField.type = 'hidden';
+                        hiddenField.name = key;
+                        hiddenField.value = params[key];
+
+                        form.appendChild(hiddenField);
+                    }
+                }
+
+                document.body.appendChild(form);
+                form.submit();
+            }
+
+            post('results.php', {
+                resultTime: resultTime
             });
-
-            // $.ajax({
-            //     type: "GET", //type of method
-            //     url: "results.php", //your page
-            //     data: {
-            //         'resultTime': resultTime
-            //     },
-            //     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-            //      // passing the values
-            //     success: function(data) {
-            //         window.location.href = 'results.php'; //do what you want here...
-            //     }
-            // });
 
         }
     }
