@@ -11,7 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Fun Game!</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <script language="JavaScript">
@@ -29,30 +29,48 @@ session_start();
 
     // allow the POST request once the counter reaches goal
 
-    function handleClick(e) {
-        e.preventDefault();
+    let startTime;
+    let endTime;
+
+    function handleClick() {
         counter++;
         console.log(counter)
-        var goal = setGoal();
-        if(counter===1){
-            var startTime= new Date();
+        let goal = setGoal();
+        if (counter == 1) {
+            startTime = new Date();
+            console.log('making starttime: ', startTime);
         }
-        checkClick(counter, goal, startTime);
-    }
-
-    function checkClick(counter, goal, startTime) {
-        if (goal === counter) {
+        if (goal == counter) {
             // Allow Post request
-            var endTime=new Date()
-            var resultTime =(endTime.getTime())/1000;
-            $.ajax({
-            type : "POST",  //type of method
-            url  : "results.php",  //your page
-            data : { startTime : startTime, endTime : endTime },// passing the values
-            success: function(res){
-                window.location.href = '/results.php';             //do what you want here...
-                    }
-        });
+            endTime = new Date()
+            console.log('end starttime', startTime);
+            console.log('end endtime', endTime);
+            let resultTime = (endTime.getTime() - startTime.getTime()) / 1000;
+
+            var redirect = 'results.php';
+
+            $('#inset_form').html(
+            '<form action="url" name="form" method="post" style="display:none;"><input type="text" name="name" value="' + value + '" /></form>');
+            document.forms['form'].submit();
+
+
+            $("#clicker").submit(function(event) {
+                alert("Handler for .submit() called.");
+                event.preventDefault();
+            });
+
+            // $.ajax({
+            //     type: "GET", //type of method
+            //     url: "results.php", //your page
+            //     data: {
+            //         'resultTime': resultTime
+            //     },
+            //     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+            //      // passing the values
+            //     success: function(data) {
+            //         window.location.href = 'results.php'; //do what you want here...
+            //     }
+            // });
 
         }
     }
@@ -79,11 +97,12 @@ session_start();
     // 1. first time on page; no SESSION data: show play button
     if (!isset($_SESSION['played_today'])) {
         // allowed to play
-        $goal = rand(20, 90);
+        $goal = rand(5, 20);
         echo "<div id='goal'>$goal</div>";
         echo 'This your first time here' . '<br/>';
         // session timeout 5 hours???
-        echo "<form action='results.php' onSubmit='handleSubmit(e)'>
+        echo "<form id='clicker' action='results.php'>
+        <input type='hidden' name='resultTime' value='null'>
         <input class='dot' onClick='handleClick()' value='Click!'/>
         </form>
         <br>";

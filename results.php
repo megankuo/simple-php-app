@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,29 +13,19 @@
 
 </script>
 
-<body>
+<body> -->
 
 <?php
 
 $_SESSION['played_today'] = true;
-$timeResult = $_POST['time'];
-if(isset($_POST['time'])){
+$timeResult = $_POST['resultTime'];
+if(isset($_POST['resultTime'])){
 echo $timeResult;
 echo "<br>take a screenshot and show your friends!";
 }
 
 ?>
-</body>
+<!-- </body>
 
-</html>
+</html> -->
 
-<?php
-// counter exists in the background
-$counter = 0;
-function incCounter()
-{
-    global $counter;
-
-    $counter++;
-}
-?>
