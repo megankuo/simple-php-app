@@ -6,30 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Click!</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
-<body onClick="handleClick">
-    <?php
-
-    $counter = 0;
-    echo $counter;
-
-    ?>
-</body>
-
-<script>
+<script language="JavaScript">
     function handleClick() {
         incCounter();
         alert('clicked!');
     }
 </script>
 
+<body>
+    <span onClick="handleClick()" class="dot"></span>
+</body>
+
 </html>
 
 <?php
-    function incCounter() {
-        global $counter;
+// counter exists in the background
+$counter = 0;
+function incCounter()
+{
+    global $counter;
 
-        $counter++;
-    }
+    $counter++;
+}
 ?>

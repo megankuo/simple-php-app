@@ -1,4 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 100%;
     height: 100vh;
-    width: 100vw;
+    background-image: url('./src/images/clouds.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* animation: move 200s linear infinite; */
+}
+
+.dot {
+    height: 300px;
+    width: 300px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    /* animation: float 6s ease-in-out infinite; */
+    text-align: center;
+    font-size: xx-large;
+    margin: 10em;
+    border-style: none;
+}
+
+.dot:hover {
+    animation: sway 2s infinite;
+    cursor: pointer;
+}
+
+button {
+    text-decoration: none;
+}
+
+@keyframes float {
+    0% {
+        box-shadow: 0 5px 10px 0px #C4B9C7;
+        transform: translatey(0px);
+    }
+
+    50% {
+        box-shadow: 0 15px 10px 0px #C4B9C7;
+        transform: translatey(-20px);
+    }
+
+    100% {
+        box-shadow: 0 5px 10px 0px #C4B9C7;
+        transform: translatey(0px);
+    }
+}
+
+@keyframes sway {
+    0% {
+        transform: rotate(8deg);
+    }
+
+    50% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(8deg);
+    }
+}
+
+@keyframes move {
+    from {
+        background-position: left;
+    }
+
+    to {
+        background-position: right;
+    }
 }
