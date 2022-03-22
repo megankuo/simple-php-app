@@ -65,17 +65,17 @@ button {
 
 @keyframes float {
     0% {
-        box-shadow: 0 5px 10px 0px #C4B9C7;
+        box-shadow: 0 5px 10px 0px #b9c1c7;
         transform: translatey(0px);
     }
 
     50% {
-        box-shadow: 0 15px 10px 0px #C4B9C7;
+        box-shadow: 0 15px 10px 0px #b9c1c7;
         transform: translatey(-20px);
     }
 
     100% {
-        box-shadow: 0 5px 10px 0px #C4B9C7;
+        box-shadow: 0 5px 10px 0px #b9c1c7;
         transform: translatey(0px);
     }
 }

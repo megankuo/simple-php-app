@@ -16,7 +16,7 @@ session_start();
 </head>
 
 <script language="JavaScript">
-    // generate a goal
+    // grab the goal that was generated with php
     var goal;
     var counter = 0;
 
@@ -25,8 +25,6 @@ session_start();
         console.log(goal);
         return parseInt(goal);
     }
-
-    // form is disabled if counter < goal
 
     // allow the POST request once the counter reaches goal
 
@@ -79,7 +77,7 @@ session_start();
                 document.body.appendChild(form);
                 form.submit();
             }
-
+            // make the post to results.php and send user there
             post('results.php', {
                 resultTime: resultTime,
                 goal: goal
@@ -91,21 +89,6 @@ session_start();
 
 <body>
     <?php
-    // counter exists in the background
-    $counter = 0;
-    function incCounter()
-    {
-        global $counter;
-
-        $counter++;
-    }
-    if ($counter > 0) {
-        //start timer
-
-        // when the timer ends, save counter to session/cookie
-
-        // send the user to new page (or refresh)
-    }
 
     // 1. first time on page; no SESSION data: show play button
     if (!isset($_SESSION['played_today'])) {
@@ -121,23 +104,17 @@ session_start();
                 <h2>Click this many times: <span id='goal'>$goal</span></h2>
             </div>";
 
-        // session timeout 5 hours???
         echo "<form id='clicker' action='results.php'>
         <input type='hidden' name='resultTime' value='null'>
         <input readonly class='dot' onClick='handleClick()' value='Click!' type='text'/>
         </form>
         <br>";
-        // echo "<div class='counter'> $counter </div>";
-    } else if (isset($_POST)) {
-        echo "post!!!";
-        incCounter();
     } else {
-        // not allowed to play
+        // TODO: not allowed to play because session has not timed out
         // show their last click score from session/cookie
         echo 'You have been here before';
         header("refresh:3;url=results.php");
     }
-    //    echo 'This some dynamic content';
 
     ?>
 </body>
