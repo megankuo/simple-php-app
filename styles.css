@@ -30,6 +30,7 @@ body {
     /*margin: 10em;*/
     border-style: none;
     box-sizing: border-box;
+    user-select: none;
 }
 
 .dot:hover {
