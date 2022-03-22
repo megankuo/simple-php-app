@@ -31,9 +31,10 @@ body {
     border-style: none;
     box-sizing: border-box;
     user-select: none;
+    cursor: pointer;
 }
 
-.dot:hover {
+.dot:hover, .dot:focus {
     animation: sway 2s infinite;
     cursor: pointer;
 }
