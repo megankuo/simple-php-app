@@ -31,7 +31,6 @@ body {
     border-style: none;
     box-sizing: border-box;
     user-select: none;
-    pointer-events: none;
 }
 
 .dot:hover {
