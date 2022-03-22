@@ -33,13 +33,19 @@ body {
     user-select: none;
     cursor: pointer;
     outline: none;
+    -webkit-tap-highlight-color: #4ACAF5;
+}
+
+.dot:active {
+    outline-style: inset;
+    outline-width: 2px;
+    outline-color: #4ACAF5;
 }
 
 .dot:hover, .dot:link, .dot:visited {
     animation: sway 2s infinite;
     cursor: pointer;
     border: none;
-    outline: none;
 }
 
 /* .dot:focus, .dot:active, .dot:link, .dot:visited {
