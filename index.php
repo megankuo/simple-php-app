@@ -124,7 +124,7 @@ session_start();
         // session timeout 5 hours???
         echo "<form id='clicker' action='results.php'>
         <input type='hidden' name='resultTime' value='null'>
-        <input readonly class='dot' onClick='handleClick()' value='Click!'/>
+        <input readonly class='dot' onClick='handleClick()' value='Click!' type='text'/>
         </form>
         <br>";
         // echo "<div class='counter'> $counter </div>";

@@ -18,7 +18,7 @@ body {
     animation: move 200s linear infinite;
 }
 
-.dot {
+.dot, .dot:focus, .dot:active {
     height: 300px;
     width: 300px;
     background-color: white;
@@ -32,17 +32,20 @@ body {
     box-sizing: border-box;
     user-select: none;
     cursor: pointer;
+    outline: none;
 }
 
-.dot:hover, .dot:focus {
+.dot:hover, .dot:link, .dot:visited {
     animation: sway 2s infinite;
     cursor: pointer;
-}
-
-.dot:focus, .dot:active, .dot:link, .dot:visited {
     border: none;
     outline: none;
 }
+
+/* .dot:focus, .dot:active, .dot:link, .dot:visited {
+    border: none;
+    outline: none;
+} */
 
 .container {
     padding: 2em;
