@@ -38,6 +38,11 @@ body {
     cursor: pointer;
 }
 
+.dot:focus, .dot:active, .dot:link, .dot:visited {
+    border: none;
+    outline: none;
+}
+
 .container {
     padding: 2em;
     box-sizing: border-box;
