@@ -2,3 +2,5 @@
 *.iml
 .DS_store
 .idea/*
+vendor/
+.env

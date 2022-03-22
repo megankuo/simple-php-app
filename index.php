@@ -1,5 +1,6 @@
 <?php
 ob_start();
+require('vendor/autoload.php');
 session_start();
 ?>
 <!DOCTYPE html>
