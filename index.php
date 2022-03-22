@@ -124,7 +124,7 @@ session_start();
         // session timeout 5 hours???
         echo "<form id='clicker' action='results.php'>
         <input type='hidden' name='resultTime' value='null'>
-        <input class='dot' onClick='handleClick()' value='Click!'/>
+        <input readonly class='dot' onClick='handleClick()' value='Click!'/>
         </form>
         <br>";
         // echo "<div class='counter'> $counter </div>";
@@ -137,7 +137,7 @@ session_start();
         echo 'You have been here before';
         header("refresh:3;url=results.php");
     }
-//    echo 'This some dynamic content';
+    //    echo 'This some dynamic content';
 
     ?>
 </body>
