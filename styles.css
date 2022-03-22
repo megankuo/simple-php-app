@@ -15,7 +15,7 @@ body {
     background-image: url('./src/images/clouds.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
-     animation: move 200s linear infinite;
+    animation: move 200s linear infinite;
 }
 
 .dot {
@@ -24,13 +24,14 @@ body {
     background-color: white;
     border-radius: 50%;
     display: inline-block;
-     animation: float 6s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
     text-align: center;
     font-size: xx-large;
     /*margin: 10em;*/
     border-style: none;
     box-sizing: border-box;
     user-select: none;
+    pointer-events: none;
 }
 
 .dot:hover {
