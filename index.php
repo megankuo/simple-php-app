@@ -10,7 +10,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Fun Game!</title>
+    <title>CLICKCLICKCLICK!</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
@@ -80,7 +80,8 @@ session_start();
             }
 
             post('results.php', {
-                resultTime: resultTime
+                resultTime: resultTime,
+                goal: goal
             });
 
         }
@@ -108,9 +109,17 @@ session_start();
     // 1. first time on page; no SESSION data: show play button
     if (!isset($_SESSION['played_today'])) {
         // allowed to play
-        $goal = rand(5, 20);
-        echo "<div id='goal'>$goal</div>";
-        echo 'This your first time here' . '<br/>';
+        $goal = rand(30, 1000);
+        echo "<div class='container'>
+                <h1>Click like the wind</h1>
+            </div>
+            <div class='container'>
+                <p>How fast is your click speed?</p>
+            </div>
+            <div class='container'>
+                <h2>Click this many times: <span id='goal'>$goal</span></h2>
+            </div>";
+
         // session timeout 5 hours???
         echo "<form id='clicker' action='results.php'>
         <input type='hidden' name='resultTime' value='null'>
@@ -127,7 +136,7 @@ session_start();
         echo 'You have been here before';
         header("refresh:3;url=results.php");
     }
-    echo 'This some dynamic content';
+//    echo 'This some dynamic content';
 
     ?>
 </body>
